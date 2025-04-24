@@ -5,7 +5,7 @@ using namespace std;
 LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head) 
 {
     // Write your code here
-    while(head==NULL|| head->next==NULL){
+    if(head==NULL|| head->next==NULL){
         return head;
     }
     LinkedListNode<int>* prev=NULL;
