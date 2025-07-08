@@ -104,4 +104,5 @@ class Solution{
         return true;
     }
 };
-//tc o(1)
+//tc o(n)
+//sc-O(1)
