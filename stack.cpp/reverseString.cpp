@@ -5,7 +5,7 @@ using namespace std;
 
 
 int main () {
-    string str = "babbar";
+    string str = "krishna";
 
     stack<char> s;
 
@@ -27,3 +27,4 @@ int main () {
 
     return 0;
 }
+//space and tc us O(n)
