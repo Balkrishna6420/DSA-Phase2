@@ -1,40 +1,56 @@
-// class Solution {
-//   public:
+/*
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int x) {
+        data = x;
+        left = right = nullptr;
+    }
+};
+*/
+
+class Solution {
+  public:
+  void createMapping(vector<int> &inorder, map<int,int> &nodeToIndex, int n){
+      for(int i = 0; i < n; i++){
+          nodeToIndex[inorder[i]] = i;  // Changed == to =
+      }
+  }
   
-//   int findPosition(int in[], int element, int n){
-//       for(int i = 0; i < n; i++){
-//           if(in[i] == element)
-//               return i;
-//       }
-//       return -1;
-//   }
-
-//   Node* solve(int in[], int pre[], int &index,
-//               int inorderStart, int inorderEnd, int n){
-
-//       // base case
-//       if(index >= n || inorderStart > inorderEnd){
-//           return NULL;
-//       }
-
-//       int element = pre[index++];
-//       Node* root = new Node(element);
-
-//       int position = findPosition(in, element, n);
-
-//       // recursive calls
-//       root->left = solve(in, pre, index, inorderStart, position - 1, n);
-//       root->right = solve(in, pre, index, position + 1, inorderEnd, n);
-
-//       return root;
-//   }
-
-//   Node *buildTree(vector<int> &inorder, vector<int> &preorder) {
-//       int n = inorder.size();
-//       int preOrderIndex = 0;
-
-//       Node* ans = solve(inorder.data(), preorder.data(),
-//                         preOrderIndex, 0, n - 1, n);
-//       return ans;
-//   }
-// };
+  Node* solve(vector<int> &inorder, vector<int> &postorder, int &index,
+              int inorderStart, int inorderEnd, int n, map<int,int> &nodeToIndex){
+      // base case
+      if(index < 0 || inorderStart > inorderEnd){
+          return NULL;
+      }
+      
+      // create a root node for element
+      int element = postorder[index--];
+      Node* root = new Node(element);
+      
+      // find element's index in inorder
+      int position = nodeToIndex[element];
+      
+      // recursive calls (right first for postorder)
+      root->right = solve(inorder, postorder, index, position + 1, inorderEnd, n, nodeToIndex);
+      root->left = solve(inorder, postorder, index, inorderStart, position - 1, n, nodeToIndex);
+      
+      return root;
+  }
+  
+  Node *buildTree(vector<int> &inorder, vector<int> &postorder) {
+      int n = inorder.size();  // Added this line
+      int postOrderIndex = n - 1;  // Changed variable name
+      map<int,int> nodeToIndex;
+      
+      // create node to index mapping
+      createMapping(inorder, nodeToIndex, n);
+      
+      Node* ans = solve(inorder, postorder, postOrderIndex, 0, n - 1, n, nodeToIndex);
+      
+      return ans;
+  }
+};
