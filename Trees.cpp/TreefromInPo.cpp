@@ -20,6 +20,7 @@ class Solution {
       }
   }
   
+  
   Node* solve(vector<int> &inorder, vector<int> &postorder, int &index,
               int inorderStart, int inorderEnd, int n, map<int,int> &nodeToIndex){
       // base case
