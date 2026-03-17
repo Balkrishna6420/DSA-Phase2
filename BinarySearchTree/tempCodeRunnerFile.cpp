@@ -1,0 +1,1 @@
+root=deleteFromBST(root,30);
