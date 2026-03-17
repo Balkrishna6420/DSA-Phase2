@@ -106,6 +106,20 @@ void takeInput(Node* &root){
     }
 
 }
+Node* minVal(Node* root){
+    Node* temp=root;
+    while(temp->left!=NULL){
+        temp=temp->left;
+    }
+    return temp;
+}
+Node* maxVal(Node* root){
+    Node* temp=root;
+    while(temp->right!=NULL){
+        temp=temp->right;
+    }
+    return temp;
+}
 int main(){
     Node* root=NULL;
     cout<<"Enter data to create BSt"<<endl;
@@ -118,6 +132,8 @@ int main(){
     preorder(root);
     cout<<"printing the BST"<<endl;
     postorder(root);
+    cout<<"min val is"<<minVal(root)->data<<endl;
+    cout<<"max val is "<<maxVal(root)->data<<endl;
     return 0;
 
 }
