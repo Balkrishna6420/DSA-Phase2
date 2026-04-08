@@ -151,3 +151,5 @@ int main(){
 //tc of heap sort is nlogn
 //note that dletion happnes only of root node so here 55 will be deleted
 //we dont have to use max heap min heap code again and again for it there us a data structure names priority queue use that imporyt using queue
+//for 0 based indexing for loop will goies to for(int i=n/2-1;i>=0;i--)here it is all non leaf nodes
+//similarly for 1 based indexing for(int i=n/2;i>0;i--);
