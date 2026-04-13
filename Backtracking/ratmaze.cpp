@@ -50,5 +50,5 @@ vector < string > searchMaze(vector < vector < int >> & arr, int n) {
     solve(0,0,arr,n,ans,visited,path);
     return ans;
 }
-tc is 4 * nsquare
+//tc is 4 * nsquare
 //sc is o(n*M)
