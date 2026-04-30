@@ -17,7 +17,7 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
     }
     //creation of set on basis of distance and node
     set<pair<int,int>>st;
-    //inotoalise dist and set with source node
+    //initialise dist and set with source node
     dist[source]=0;
     st.insert(make_pair(0,source));
     while(!st.empty()){
