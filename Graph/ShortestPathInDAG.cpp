@@ -74,3 +74,4 @@ int main(){
     }cout<<endl;
     return 0;
 }
+//tc and sc is o(n+e)
