@@ -85,7 +85,7 @@ int knapsack(vector<int> weight, vector<int> value, int n, int maxWeight)
 	
 	return solve(weight,value,n,maxWeight);
 
-}
+}//tc is O(n*W) and sc is ame as well
 //using space optimisation
 #include <bits/stdc++.h> 
 int solve(vector<int> &weight, vector<int> &value, int n, int capacity){
@@ -121,3 +121,4 @@ int knapsack(vector<int> weight, vector<int> value, int n, int maxWeight)
 	return solve(weight,value,n,maxWeight);
 
 }
+//sc is O(2*W) ie O(W);
