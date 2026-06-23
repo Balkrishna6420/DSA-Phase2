@@ -1,3 +1,4 @@
+//most asked qhestion although this appraoch is bit hard 
 class Solution {
 public:
     vector<int> nextSmallerElement(vector<int> arr) {
@@ -73,3 +74,4 @@ public:
         return maxi;
     }
 };
+//tc o(n*(m+n);
